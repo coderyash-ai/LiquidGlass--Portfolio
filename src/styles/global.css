@@ -1,0 +1,244 @@
+:root {
+  --bg: #eceae4;
+  --bg-warm: #e4dfd4;
+  --bg-deep: #1c1c1a;
+  --surface: #f6f4ef;
+  --ink: #1c1c1a;
+  --ink-soft: #4a4944;
+  --ink-mute: #6f6d66;
+  --line: rgba(28, 28, 26, 0.1);
+  --accent: #ff5500;
+  --accent-soft: #ff8833;
+  --glass-fill: rgba(255, 255, 255, 0.42);
+  --glass-fill-strong: rgba(255, 255, 255, 0.62);
+  --glass-fill-dark: rgba(28, 28, 26, 0.42);
+  --glass-border: rgba(255, 255, 255, 0.75);
+  --glass-border-dark: rgba(255, 255, 255, 0.2);
+  --glass-inner: rgba(255, 255, 255, 0.85);
+  --glass-shadow: inset 0 1.5px 0.5px 0 rgba(255, 255, 255, 0.85), inset 0 -1.5px 2px 0 rgba(0, 0, 0, 0.08), 0 18px 50px rgba(28, 28, 26, 0.14), 0 2px 8px rgba(28, 28, 26, 0.06);
+  --glass-shadow-lg: inset 0 2px 1px 0 rgba(255, 255, 255, 0.9), inset 0 -2px 3px 0 rgba(0, 0, 0, 0.12), 0 30px 80px rgba(28, 28, 26, 0.2), 0 8px 24px rgba(28, 28, 26, 0.1);
+  --blur: 22px;
+  --blur-lg: 36px;
+  --sat: 160%;
+  --r-sm: 14px;
+  --r-md: 22px;
+  --r-lg: 32px;
+  --r-pill: 999px;
+  --space-1: 0.4rem;
+  --space-2: 0.75rem;
+  --space-3: 1.25rem;
+  --space-4: 2rem;
+  --space-5: 3.5rem;
+  --space-6: 6rem;
+  --space-7: 9rem;
+  --font-sans: "Instrument Sans", "Segoe UI", sans-serif;
+  --font-serif: "Instrument Serif", "Times New Roman", serif;
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --spring: cubic-bezier(0.32, 0.72, 0, 1);
+  --dur: 280ms;
+  --focus: 0 0 0 3px var(--bg), 0 0 0 5px var(--accent);
+}
+
+[data-theme="dark"] {
+  --bg: #000000;
+  --bg-warm: #0a0a0a;
+  --bg-deep: #050505;
+  --surface: #121214;
+  --ink: #f5f5f7;
+  --ink-soft: #a1a1a6;
+  --ink-mute: #6e6e73;
+  --line: rgba(255, 255, 255, 0.12);
+  --accent: #ff6600;
+  --accent-soft: #ff9933;
+  --glass-fill: rgba(22, 22, 26, 0.68);
+  --glass-fill-strong: rgba(32, 32, 36, 0.82);
+  --glass-fill-dark: rgba(12, 12, 14, 0.88);
+  --glass-border: rgba(255, 255, 255, 0.18);
+  --glass-border-dark: rgba(255, 255, 255, 0.12);
+  --glass-inner: rgba(255, 255, 255, 0.22);
+  --glass-shadow: inset 0 1.5px 0.5px 0 rgba(255, 255, 255, 0.25), inset 0 -1.5px 2px 0 rgba(0, 0, 0, 0.7), 0 18px 50px rgba(0, 0, 0, 0.85), 0 2px 8px rgba(0, 0, 0, 0.5);
+  --glass-shadow-lg: inset 0 2px 1px 0 rgba(255, 255, 255, 0.35), inset 0 -2px 3px 0 rgba(0, 0, 0, 0.8), 0 30px 80px rgba(0, 0, 0, 0.95), 0 8px 24px rgba(0, 0, 0, 0.65);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+html,
+body {
+  margin: 0;
+  min-height: 100%;
+}
+
+body {
+  font-family: var(--font-sans);
+  color: var(--ink);
+  background: var(--bg);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  transition: background-color var(--dur) var(--ease), color var(--dur) var(--ease);
+}
+
+#root {
+  min-height: 100%;
+}
+
+img {
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+:focus-visible {
+  outline: none;
+  box-shadow: var(--focus);
+}
+
+.skip-link {
+  position: absolute;
+  left: 1rem;
+  top: -4rem;
+  z-index: 80;
+  padding: 0.7rem 1rem;
+  border-radius: var(--r-sm);
+  background: var(--ink);
+  color: var(--surface);
+}
+
+.skip-link:focus {
+  top: 1rem;
+}
+
+/* Liquid Glass Material — Delicate iOS Crystalline Optics & Neomorphic Depth */
+.glass {
+  position: relative;
+  isolation: isolate;
+  background: linear-gradient(
+    145deg,
+    rgba(255, 255, 255, 0.45) 0%,
+    rgba(255, 255, 255, 0.28) 60%,
+    rgba(255, 255, 255, 0.35) 100%
+  );
+  border: 1px solid rgba(255, 255, 255, 0.65);
+  box-shadow:
+    inset 0 1px 1px 0 rgba(255, 255, 255, 0.9),
+    inset 0 -1px 2px 0 rgba(0, 0, 0, 0.05),
+    0 20px 45px rgba(28, 28, 26, 0.08),
+    0 2px 8px rgba(28, 28, 26, 0.04);
+  backdrop-filter: blur(28px) saturate(190%);
+  -webkit-backdrop-filter: blur(28px) saturate(190%);
+  overflow: hidden;
+}
+
+[data-theme="dark"] .glass {
+  background: linear-gradient(
+    145deg,
+    rgba(24, 24, 28, 0.72) 0%,
+    rgba(16, 16, 20, 0.62) 60%,
+    rgba(20, 20, 24, 0.68) 100%
+  );
+  border-color: rgba(255, 255, 255, 0.15);
+  box-shadow:
+    inset 0 1px 1px 0 rgba(255, 255, 255, 0.22),
+    inset 0 -1px 2px 0 rgba(0, 0, 0, 0.65),
+    0 24px 60px rgba(0, 0, 0, 0.8),
+    0 4px 12px rgba(0, 0, 0, 0.5);
+}
+
+.glass::before {
+  content: "";
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.6) 0%,
+    rgba(255, 255, 255, 0.2) 20%,
+    transparent 50%,
+    transparent 70%,
+    rgba(255, 255, 255, 0.15) 100%
+  );
+  opacity: 0.9;
+  mix-blend-mode: overlay;
+}
+
+.glass::after {
+  content: "";
+  pointer-events: none;
+  position: absolute;
+  inset: 0px 5% auto;
+  height: 1.5px;
+  border-radius: inherit;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.95), transparent);
+  opacity: 0.9;
+}
+
+.glass--strong {
+  background: rgba(255, 255, 255, 0.58);
+  backdrop-filter: blur(36px) saturate(210%);
+  -webkit-backdrop-filter: blur(36px) saturate(210%);
+}
+
+[data-theme="dark"] .glass--strong {
+  background: rgba(28, 28, 34, 0.76);
+}
+
+.glass--dark {
+  color: #f4f2ec;
+  background: var(--glass-fill-dark);
+  border-color: var(--glass-border-dark);
+  box-shadow: var(--glass-shadow-lg);
+}
+
+.glass--dark::before {
+  background: linear-gradient(165deg, rgba(255, 255, 255, 0.22), transparent 42%);
+}
+
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  .glass {
+    background: rgba(246, 244, 239, 0.92);
+  }
+
+  .glass--dark {
+    background: rgba(28, 28, 26, 0.94);
+  }
+}
+
+@media (max-width: 720px) {
+  .glass {
+    backdrop-filter: blur(14px) saturate(140%);
+    -webkit-backdrop-filter: blur(14px) saturate(140%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
