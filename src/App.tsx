@@ -87,19 +87,7 @@ export default function App() {
           </div>
         </section>
 
-        <section className="band" aria-label="Signals">
-          <div className="band-track">
-            {Array.from({ length: 2 }).map((_, i) => (
-              <span className="band-copy" key={i}>
-                <span>{profile.location}</span>
-                <span>23 public repositories</span>
-                <span>Hugging Face · {profile.handle}</span>
-                <span>Typical reply under 12 hours</span>
-                <span>Agents · Vision · Automation</span>
-              </span>
-            ))}
-          </div>
-        </section>
+
 
         <section id="work" className="section">
           <Reveal>
