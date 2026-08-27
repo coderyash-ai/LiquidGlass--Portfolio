@@ -71,6 +71,8 @@ main {
   align-items: center;
   padding: 0 1rem;
   pointer-events: none;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
 }
 
 .nav-bar,
@@ -404,6 +406,7 @@ main {
     inset 0 1px 1px rgba(255, 255, 255, 0.9),
     3px 6px 20px rgba(0, 0, 0, 0.08);
   backdrop-filter: blur(24px) saturate(180%);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
 }
 
 [data-theme="dark"] .hero-hud {
